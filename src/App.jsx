@@ -25,13 +25,16 @@ function App() {
 
   const handleRemoveRow = (id) => {
     setRows(rows.filter((row) => row.id !== id));
+    if (rows.length == 0) {
+      setCount(0);
+    }
   };
 
   return (
-    <div className="flex h-[100vh] justify-center items-center">
+    <div className="flex h-[100vh] justify-center items-center bg-slate-500">
       <div>
         {/*  */}
-        <div className="flex justify-between mb-6">
+        <div className="flex justify-between  mb-6">
           <button className="btn mr-1 btn-sm" onClick={handleInsertRow}>
             Insert Row
           </button>
@@ -46,9 +49,9 @@ function App() {
         </div>
 
         {rows.length > 0 && (
-          <table className="table">
+          <table className="table text-white">
             <thead>
-              <tr>
+              <tr className="text-white">
                 <th>Item Name</th>
                 <th>Amount</th>
                 <th>Action</th>
